@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+
+    <h1>PetStore</h1>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Username" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <button mat-button type="submit">Entrar</button>
+    <a routerLink="/register">Criar novo usuario</a>
+</form>

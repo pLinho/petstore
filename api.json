@@ -1,0 +1,4 @@
+{
+    "input": "https://petstore.swagger.io/v2/swagger.json",
+    "output": "out/person-place"
+}

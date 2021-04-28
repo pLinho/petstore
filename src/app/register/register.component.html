@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="register()">
+    <h1>Criar Usuario</h1>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Username" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="text" type="text" placeholder="firstName" formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="text" type="text" placeholder="lastName" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="text" type="text" placeholder="email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="tel" placeholder="Phone" formControlName="phone">
+    </mat-form-field>
+    <button mat-button type="submit">Criar Usuario</button>
+    <a routerLink="/login">Já possuo Usuário</a>
+</form>
