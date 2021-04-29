@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { inject } from '@angular/core/testing';
+import { NAVIGATION } from '../models/navigation.injection';
+import { INavigation } from '../models/inavigation';
 
 @Component({
   selector: 'ns-acesso',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcessoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  
+  @Inject(NAVIGATION)
+  public nav: INavigation[],) { 
+  
+  }
 
   ngOnInit(): void {
   }

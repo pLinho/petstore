@@ -1,1 +1,7 @@
 <p>acesso works!</p>
+<div class="nav">
+    <button *ngFor="let navigation of nav" [routerLink]="[navigation.path]">
+            <mat-icon>{{ navigation.icon}}</mat-icon>
+            {{ navigation.name}}
+    </button>
+</div>
