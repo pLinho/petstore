@@ -5,7 +5,7 @@ export const navgation:INavigation[] = [
     {
         name : 'Pets',
         icon:'pets',
-        path: '/acesso/pet',
+        path: '/acesso/pets',
     },
     
     {
@@ -16,7 +16,7 @@ export const navgation:INavigation[] = [
     
     {
         icon : 'person',
-        name:'Uset',
-        path: '/acesso/pet',
+        name:'User',
+        path: '/acesso/user',
     },
 ] 

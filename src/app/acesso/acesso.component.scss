@@ -1,0 +1,55 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    background: url("/assets/logo.svg");
+    background-size: contain;
+}
+
+.barra {
+    height: 64px;
+    background-color: rgba($color: #3c1792, $alpha: 1.0);
+    box-shadow: 3px 3px 6px rgba($color: #2424a8, $alpha: 1.0);
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.container {
+    display:flex;
+    flex-direction: row;
+    flex: auto;
+    .nav {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(75, 75, 185);
+
+        button {
+            background: transparent;
+            border:none;
+            padding: 5px 12px;
+
+            &:hover {
+                background: rgb(101, 101, 161);
+            }
+
+        }
+
+    }
+
+    .container {
+        height: calc(100vh - 64px);
+        overflow:auto;
+
+        .teste{
+            height: 200vh;
+        }
+    }
+} 

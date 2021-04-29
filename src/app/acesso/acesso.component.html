@@ -1,7 +1,22 @@
-<p>acesso works!</p>
-<div class="nav">
-    <button *ngFor="let navigation of nav" [routerLink]="[navigation.path]">
+<div class="barra">
+    <div class="logo"></div>
+    <span *ngIf="service.usuarioAcesso" style="flex:auto"></span>
+    <span>
+       <strong>bem vindo</strong>{{service.usuarioAcesso?.firstName}} {{service.usuarioAcesso?.lastName}}
+    </span>
+</div>
+<div class="container">
+    <div class="nav">
+        <ng-container *ngFor="let navigation of nav" >
+            <button [routerLink]="[navigation.path]">   
             <mat-icon>{{ navigation.icon}}</mat-icon>
-            {{ navigation.name}}
-    </button>
+                {{ navigation.name}}
+            </button> 
+        </ng-container>
+    </div>
+    <div class="container">
+        <router-outlet></router-outlet>
+        pagina works
+        <div class="container"></div>
+    </div>
 </div>
