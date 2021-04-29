@@ -1,1 +1,26 @@
-<p>acesso works!</p>
+<div class="barra">
+    <div class="logo"> </div>
+    <span style="flex:auto"></span>
+    <span *ngIf="service.usuarioAcesso">
+        <strong>Bem-Vindo</strong> {{ service.usuarioAcesso.firstName }} {{service.usuarioAcesso.lastName}}
+    </span>
+</div>
+<div class="container">
+    <div class="nav">
+        <ng-container *ngFor="let navegacao of nav">
+            <button [routerLink]="[navegacao.path]">
+                <mat-icon> {{navegacao.icon}} </mat-icon>
+                {{navegacao.nome}}
+            </button>
+        </ng-container>
+    </div>
+
+
+
+    <div class="container">
+        <router-outlet></router-outlet>
+        pagina
+        <div class="teste"></div>
+    </div>
+
+</div>

@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { AcessoRoutingModule } from './acesso-routing.module';
 import { AcessoComponent } from './acesso.component';
-
-
+import { NAVIGATION } from '../models/navigation.injection';
+import { MatIconModule } from '@angular/material/icon';
+import { navegation } from './../navigation';
 @NgModule({
   declarations: [
-    AcessoComponent
+    AcessoComponent,
   ],
   imports: [
     CommonModule,
-    AcessoRoutingModule
+    AcessoRoutingModule,
+    MatIconModule
+  ],
+  providers: [
+    { provide: NAVIGATION, useValue: navegation }
   ]
 })
 export class AcessoModule { }

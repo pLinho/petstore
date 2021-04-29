@@ -12,16 +12,32 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) { }
+  ) { 
+    const usuarioLogado = localStorage.getItem('user');
+    if (usuarioLogado){
+      this.usuarioAcesso = {};
+      this.getUser(usuarioLogado);
+    }
+   }
 
   async login(username: string, password: string) {
     const endpoint = `https://petstore.swagger.io/v2/user/login?username=${username}&password=${password}`;
-    const endpoint2 = `https://petstore.swagger.io/v2/user/${username}`;
+    
     const acesso = await this.http.get<IMessage>(endpoint).toPromise();
     if (acesso.code === 200) {
-      this.usuarioAcesso = await this.http.get<IUser>(endpoint2).toPromise();
+      await this.getUser(username);
       this.router.navigate(['/acesso']);
     }
+  }
+
+  async getUser(username: string){
+    const endpoint2 = `https://petstore.swagger.io/v2/user/${username}`;
+
+    this.usuarioAcesso = await this.http.get<IUser>(endpoint2).toPromise();
+
+    if (this.usuarioAcesso && this.usuarioAcesso.username)
+      localStorage.setItem('user', this.usuarioAcesso.username)
+
   }
 
   async register(newUser: IUser) {
