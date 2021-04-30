@@ -1,0 +1,58 @@
+<header>
+        <button (click)="adicionarClient()">novo</button>
+        <button (click)="save()">salvar</button>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="conteiner">
+                <mat-list>
+                    <mat-list-item *ngFor="let cliente of lista" (click)="selecionar(cliente, $event)" [class.selecionado] ="cliente===selecionado">
+                        {{ cliente.nomeCompleto}}
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="conteiner"></div>
+                <form [formGroup]="form">
+                        <mat-radio-group formControlName="tipoPessoa" aria-label="Select an option">
+                                <mat-radio-button  value="F">Pessoa fisica</mat-radio-button>
+                                <mat-radio-button  value="J">pessoa juridica</mat-radio-button>
+                        </mat-radio-group>
+                        <ng-container *ngIf = "form.controls.tipoPessoa.value ==='J'">
+                            <mat-form-field>
+                                <input matInput placeholder="Cnpj" formControlName="cpfCnpj" mask="00.000.000/0000-00" type="text">
+                            </mat-form-field>
+                        </ng-container>
+                        <ng-container *ngIf = "form.controls.tipoPessoa.value ==='F'">
+                            <mat-form-field>
+                                <input matInput placeholder="CPF" formControlName="cpfCnpj" mask="000.000.000-00" type="text">
+                            </mat-form-field>
+                        </ng-container>
+                        <mat-form-field>
+                            <input matInput placeholder="nomeCompleto" formControlName="nomeCompleto" type="text">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="nomeUsual" formControlName="nomeUsual" type="text">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-form-field><input matInput [placeholder]="form.controls.tipoPessoa.value ==='j' ? 'Data Fundacão' : 'Data Nascimento'"
+                            formControlName="dataCriacao" type="text" [matDatepicker]="picker">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="inscricaoEstadual" formControlName="inscricaoEstadual" type="text"></mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="inscricaMunicipal" formControlName="inscricaMunicipal" type="text"></mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="email" formControlName="email" type="text"></mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="group" formControlName="group" type="text"></mat-form-field>
+                </form>
+        </div>
+    </div>
+</div>

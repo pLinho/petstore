@@ -1,22 +1,20 @@
 <div class="barra">
     <div class="logo"></div>
-    <span *ngIf="service.usuarioAcesso" style="flex:auto"></span>
+    <span style="flex:auto"></span>
     <span>
-       <strong>bem vindo</strong>{{service.usuarioAcesso?.firstName}} {{service.usuarioAcesso?.lastName}}
+        <strong>bem vindo</strong>{{service.usuarioAcesso?.firstName}} {{service.usuarioAcesso?.lastName}}
     </span>
 </div>
-<div class="container">
+<div class="container-2">
     <div class="nav">
-        <ng-container *ngFor="let navigation of nav" >
-            <button [routerLink]="[navigation.path]">   
-            <mat-icon>{{ navigation.icon}}</mat-icon>
-                {{ navigation.name}}
-            </button> 
+        <ng-container *ngFor="let nav of nav">
+            <button [routerLink]="[nav.path]">
+                <mat-icon>{{ nav.icon}}</mat-icon>
+                {{ nav.name}}
+            </button>
         </ng-container>
     </div>
-    <div class="container">
+    <div class="container-2">
         <router-outlet></router-outlet>
-        pagina works
-        <div class="container"></div>
     </div>
 </div>

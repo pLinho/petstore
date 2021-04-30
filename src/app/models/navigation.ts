@@ -19,4 +19,10 @@ export const navgation:INavigation[] = [
         name:'User',
         path: '/acesso/user',
     },
+
+    {
+        icon : 'person',
+        name:'Client',
+        path: '/acesso/client',
+    }
 ] 
