@@ -1,0 +1,47 @@
+<header>
+    <button (click)="adicionarCliente()">Novo</button>
+</header>
+<div class="container">
+    <mat-list>
+        <mat-list-item *ngFor="let cliente of lista" (click)="selecionar(cliente)" [class.selecionado]="cliente===selecionado">
+            {{cliente.nomeCompleto}}
+        </mat-list-item>
+    </mat-list>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <input matInput placeholder="Tipo Pessoa" formControlName="tipoPessoa" type="text">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="CPF / CNPJ" formControlName="cpfCnpj" type="text">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Nome Completo" formControlName="nomeCompleto" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Nome Usual" formControlName="nomeUsual" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Data Criacao" formControlName="DataCriacao" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="inscricao Estadual" formControlName="inscricaoEstadual" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="inscricao Municipal" formControlName="inscricaoMunicipal" type="text">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="email" formControlName="email" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="grupo" formControlName="grupo" type="text">
+        </mat-form-field>
+    </form>
+</div>

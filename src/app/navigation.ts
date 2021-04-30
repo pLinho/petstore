@@ -15,5 +15,11 @@ export const navegation: INavegation[] = [
         nome: 'Users',
         path: '/acesso/users',
         icon: 'person'
+    },
+    {
+        nome: 'Cliente',
+        path: '/acesso/cliente',
+        icon: 'Peaple'
     }
+
 ]
