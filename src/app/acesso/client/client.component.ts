@@ -44,6 +44,13 @@ export class ClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.form.valueChanges.subscribe(value => this.onChange(value))
+  }
+
+  onChange(valor : any){
+    if (this.selecionado) {
+      Object.assign(this.selecionado, valor)
+    }
   }
 
   selecionar(cliente: Cliente){

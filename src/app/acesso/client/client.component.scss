@@ -1,24 +1,42 @@
 :host {
     display: flex;
-    flex-direction: row;
+    flex: auto;
+    flex-direction: column;
+    overflow: hidden;
     
+}
+
+header {
+    background-color: #6C733D;
+    padding: 12px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, .13);
 }
 
 .container {
     display: flex;
     flex-direction: row;
+
+    margin: 15px;
     
 }
 
 .mat-list {
-    min-width: 40vw;
+    margin-right: 10px;
 }
 
 .selecionado {
-    background-color: #6C733D;
+    min-width: 40vw;
+    background-color: #9DA65D;
+    border-radius: 10px;
 }
 
 .mat-form-field {
     display: flex;
     flex-direction: row;
+
+    margin: 15px;
+}
+
+mat-radio-button{
+    margin-right: 10px;
 }

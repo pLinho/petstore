@@ -6,6 +6,7 @@ import { AcessoComponent } from './acesso.component';
 import { NAVIGATION } from '../models/navigation.injection';
 import { MatIconModule } from '@angular/material/icon';
 import { navegation } from './../navigation';
+
 @NgModule({
   declarations: [
     AcessoComponent,
@@ -13,7 +14,7 @@ import { navegation } from './../navigation';
   imports: [
     CommonModule,
     AcessoRoutingModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [
     { provide: NAVIGATION, useValue: navegation }

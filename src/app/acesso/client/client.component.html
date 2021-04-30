@@ -1,5 +1,5 @@
 <header>
-    <button (click)="adicionarCliente()">Novo</button>
+    <button mat-flat-button style="background-color: #9DA65D;" (click)="adicionarCliente()">Novo</button>
 </header>
 <div class="container">
     <mat-list>
@@ -8,13 +8,26 @@
         </mat-list-item>
     </mat-list>
     <form [formGroup]="form">
-        <mat-form-field>
+
+        <mat-radio-group formControlName="tipoPessoa">
+            <mat-radio-button value="F">Pessoa Fisica</mat-radio-button>
+            <mat-radio-button value="J">Pessoa Juridica</mat-radio-button>
+        </mat-radio-group>
+        <!-- <mat-form-field>
             <input matInput placeholder="Tipo Pessoa" formControlName="tipoPessoa" type="text">
-        </mat-form-field>
-        
+        </mat-form-field> -->
+        <ng-container *ngIf="form.controls.tipoPessoa.value === 'J'">
         <mat-form-field>
-            <input matInput placeholder="CPF / CNPJ" formControlName="cpfCnpj" type="text">
+            <input matInput  mask="00.000.000/0000-00" placeholder="CNPJ" formControlName="cpfCnpj" type="text">
         </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="form.controls.tipoPessoa.value === 'F'">
+            <mat-form-field>
+                <input matInput  mask="000.000.000-00" placeholder="CPF" formControlName="cpfCnpj" type="text">
+            </mat-form-field>
+        </ng-container>
+
+
         
         <mat-form-field>
             <input matInput placeholder="Nome Completo" formControlName="nomeCompleto" type="text">
@@ -25,8 +38,16 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Data Criacao" formControlName="DataCriacao" type="text">
+            <input  matInput [placeholder]="form.controls.tipoPessoa.value === 'J' ? 'Data Fundação' : 'Data Nascimento'" formControlName="DataCriacao" type="text" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+
+        <mat-radio-group formControlName="contribuicao">
+            <mat-radio-button value="C">Contribuinte</mat-radio-button>
+            <mat-radio-button value="CI">Contribuinte Isento de Inscrição</mat-radio-button>
+            <mat-radio-button value="N">Não Contribuinte</mat-radio-button>
+        </mat-radio-group>
 
         <mat-form-field>
             <input matInput placeholder="inscricao Estadual" formControlName="inscricaoEstadual" type="text">
